@@ -1,10 +1,12 @@
 package com.footboxd.service;
 
+import java.util.Optional;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
 import com.footboxd.model.Usuario;
 import com.footboxd.repository.UsuarioRepository;
-import org.springframework.stereotype.Service;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -20,12 +22,9 @@ public class UsuarioService {
     public Usuario salvar(Usuario usuario) {
         usuario.setSenha(encoder.encode(usuario.getSenha()));
         return repository.save(usuario);
-
     }
 
     public Optional<Usuario> buscarPorLogin(String login) {
         return repository.findByLogin(login);
-        
     }
-    
 }
