@@ -33,7 +33,7 @@ public class JwtFilter extends OncePerRequestFilter {
             path = path.substring(ctx.length());
         }
 
-        return path.startsWith("/auth/") || path.startsWith("/h2-console");
+        return path.startsWith("/auth/") || path.startsWith("/h2-console") || path.equals("/error");
     }
 
     @Override

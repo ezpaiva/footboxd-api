@@ -11,6 +11,9 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private String nome;
+
     @Column(nullable = false, unique = true)
     private String login;
 
@@ -18,10 +21,15 @@ public class Usuario {
     @Column(nullable = false, length = 60)
     private String senha;
 
+    @Column(nullable = false)
     private String role;
 
     public Long getId() {
         return id;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public String getLogin() {
@@ -38,6 +46,10 @@ public class Usuario {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void setLogin(String login) {
